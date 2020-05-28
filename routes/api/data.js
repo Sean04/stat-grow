@@ -8,7 +8,7 @@ const DataPoint = require('../../models/DataPoint');
 // @desc Get current data
 router.get('/', (req, res) => {
     DataPoint.find()
-        .then(datapoints => res.json(datapoints))
+        .then(posts => res.json(posts))
 });
 
 router.post('/', (req, res) => {
