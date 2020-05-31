@@ -27,7 +27,7 @@ export default function LineChart(props) {
     });
 
     const updateData = (period) => {
-        fetch('http://localhost:5000/api/data')
+        fetch('/api/data')
         .then(response => response.json())
         .then(new_data => {
             const graphDataPoints = []
