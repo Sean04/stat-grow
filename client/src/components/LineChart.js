@@ -77,7 +77,7 @@ export default function LineChart(props) {
                 width="100%"
             />
             <Button onClick={updateData}>Update</Button>
-            <Button onClick={updateData(1)}>1 Day</Button>
+            {/* <Button onClick={updateData(1)}>1 Day</Button> */}
         </div>
     )
 }

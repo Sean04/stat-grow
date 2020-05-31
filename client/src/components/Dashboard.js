@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
+import axios from 'axios';
 
 // MaterialUI
 import { makeStyles } from '@material-ui/core/styles';
 import { 
-    Paper,
     Container,
     Button,
     Grid,
@@ -21,9 +21,7 @@ import { FaTemperatureHigh, FaSun } from 'react-icons/fa';
 import { GiZigzagLeaf, GiWaterDrop } from 'react-icons/gi';
 import { RiMistLine } from 'react-icons/ri';
 
-import TemperatureChart from './TemperatureChart';
 import LineChart from './LineChart';
-
 
 const useStyles = makeStyles({
     root: {
@@ -49,7 +47,12 @@ export default function Dashboard(props) {
     const classes = useStyles();
 
     const updateData = () => {
-        fetch('http://localhost:5000/api/data')
+        // axios.get('/api/data')
+        //     .then(res => {
+        //         console.log(res);
+        //     });
+
+        axios.get('/api/data')
         .then(response => response.json())
         .then(new_data => {
             const new_state = new_data[new_data.length-1]
