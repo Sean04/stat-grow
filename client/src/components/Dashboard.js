@@ -47,12 +47,7 @@ export default function Dashboard(props) {
     const classes = useStyles();
 
     const updateData = () => {
-        // axios.get('/api/data')
-        //     .then(res => {
-        //         console.log(res);
-        //     });
-
-        axios.get('/api/data')
+        fetch('/api/data')
         .then(response => response.json())
         .then(new_data => {
             const new_state = new_data[new_data.length-1]
