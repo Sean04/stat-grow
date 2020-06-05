@@ -13,13 +13,19 @@ import { makeStyles } from '@material-ui/core/styles';
 import MuiAppBar from './components/MuiAppBar';
 import Dashboard from './components/Dashboard';
 import Welcome from './components/Welcome';
-import AppDrawer from './components/AppDrawer';
+import AppDrawer from './components/AppDrawer.jsx';
 
 const useStyles = makeStyles((theme) => ({
   root: {
     background: '#eceff1',
-    minHeight: '1000'
   },
+  content: {
+    flexGrow: 1,
+    backgroundColor: '#ebebeb',
+    padding: theme.spacing(2),
+    paddingLeft: theme.spacing(14)
+  },
+  toolbar: theme.mixins.toolbar
 }));
 
 function App() {
@@ -29,18 +35,21 @@ function App() {
     <Router>
       <div className="App">
         <MuiAppBar />
-        {/* <AppDrawer /> */}
-        <Switch>
-          <Route path="/ctenanthe">
-            <Dashboard name="Ctenanthe" />
-          </Route>
-          <Route path="/dashboard">
-            <Dashboard />
-          </Route>
-          <Route path="/">
-            <Welcome />
-          </Route>
-        </Switch>
+        <AppDrawer />
+        <div className={classes.toolbar} />
+        <main className={classes.content}>
+          <Switch>
+            <Route path="/ctenanthe">
+              <Dashboard name="Ctenanthe" />
+            </Route>
+            <Route path="/dashboard">
+              <Dashboard />
+            </Route>
+            <Route path="/">
+                <Welcome />
+            </Route>
+          </Switch>
+        </main>
       </div>
     </Router>
   );

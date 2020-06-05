@@ -17,10 +17,13 @@ import dieff from '../img/dieff.jpg';
 import trad from '../img/trad.jpg';
 
 
-const useStyles = makeStyles({
+const useStyles = makeStyles((theme) => ({
     root: {
         // background: '#eceff1'
+        flexGrow: 1
     },
+
+    toolbar: theme.mixins.toolbar,
 
     card: {
 
@@ -28,14 +31,15 @@ const useStyles = makeStyles({
     
     media: {
     }
-})
+
+}));
 
 export default function Welcome() {
     const classes = useStyles();
 
     return (
         <Container className={classes.root}>
-            <br></br>
+
             <Typography variant="h2">Welcome</Typography>
             <br></br>
             <Grid container justify="center" spacing={2}>

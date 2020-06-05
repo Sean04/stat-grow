@@ -47,7 +47,8 @@ export default function Dashboard(props) {
     const classes = useStyles();
 
     const updateData = () => {
-        fetch('/api/data')
+        // Development fetch
+        fetch('http://localhost:5000/api/data')
         .then(response => response.json())
         .then(new_data => {
             const new_state = new_data[new_data.length-1]
@@ -61,6 +62,22 @@ export default function Dashboard(props) {
 
             setData(new_state);
         });
+
+        // Production fetch
+        // fetch('/api/data')
+        // .then(response => response.json())
+        // .then(new_data => {
+        //     const new_state = new_data[new_data.length-1]
+
+        //     // Date string parsing
+        //     var date_string = new_state.Date.slice(0, new_state.Date.length-2);
+        //     date_string = date_string.concat("Z");
+        //     const d = new Date(date_string);
+        //     const t = d.toString();
+        //     new_state.Date = t;
+
+        //     setData(new_state);
+        // });
     };
 
     return (
