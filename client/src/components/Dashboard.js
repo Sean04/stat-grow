@@ -23,7 +23,7 @@ import { RiMistLine } from 'react-icons/ri';
 
 import LineChart from './LineChart';
 
-const dev_env = true;
+const dev_env = false;
 
 const useStyles = makeStyles({
     root: {

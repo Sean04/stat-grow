@@ -3,7 +3,7 @@ import Chart from 'react-apexcharts';
 
 import { Button } from '@material-ui/core';
 
-const dev_env = true;
+const dev_env = false;
 
 export default function LineChart(props) {
     const [ state, setState ] = useState({

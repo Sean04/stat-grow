@@ -20,7 +20,7 @@ import { FaTemperatureHigh, FaSun } from 'react-icons/fa';
 import { GiZigzagLeaf, GiWaterDrop } from 'react-icons/gi';
 import { RiMistLine } from 'react-icons/ri';
 
-const dev_env = true;
+const dev_env = false;
 
 const useStyles = makeStyles({
     root: {
