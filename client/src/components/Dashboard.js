@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
 // MaterialUI
@@ -23,6 +23,8 @@ import { RiMistLine } from 'react-icons/ri';
 
 import LineChart from './LineChart';
 
+const dev_env = true;
+
 const useStyles = makeStyles({
     root: {
     },
@@ -44,36 +46,34 @@ export default function Dashboard(props) {
         Date: Date.now()
     });
     
+    // useEffect(() => {
+    //     updateData();
+    // });
+
     const classes = useStyles();
 
     const updateData = () => {
-        // Development fetch
-        // fetch('http://localhost:5000/api/data')
-        // .then(response => response.json())
-        // .then(new_data => {
-        //     const new_state = new_data[new_data.length-1]
-
-        //     // Date string parsing
-        //     var date_string = new_state.Date.slice(0, new_state.Date.length-2);
-        //     date_string = date_string.concat("Z");
-        //     const d = new Date(date_string);
-        //     const t = d.toString();
-        //     new_state.Date = t;
-
-        //     setData(new_state);
-        // });
+        let fetch_url;
+        if (dev_env){
+            fetch_url = 'http://localhost:5000/api/data';
+        } else {
+            fetch_url = '/api/data';
+        };
 
         // Production fetch
-        fetch('/api/data')
+        fetch(fetch_url)
         .then(response => response.json())
         .then(new_data => {
             const new_state = new_data[new_data.length-1]
 
             // Date string parsing
-            var date_string = new_state.Date.slice(0, new_state.Date.length-2);
-            date_string = date_string.concat("Z");
+            console.log(new_state.Date);
+            var date_string = new_state.Date.slice(0, new_state.Date.length-1);
+            date_string = date_string.concat("+10:00");
+            console.log(date_string);
             const d = new Date(date_string);
             const t = d.toString();
+            console.log(t);
             new_state.Date = t;
 
             setData(new_state);
@@ -82,7 +82,7 @@ export default function Dashboard(props) {
 
     return (
         <Container >
-            {updateData()}
+            {/* {updateData()} */}
             <Grid container spacing={5}>
                 <Grid item xs={12}>
                     <br></br>
