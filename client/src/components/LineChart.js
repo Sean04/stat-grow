@@ -33,6 +33,8 @@ export default function LineChart(props) {
     // });
 
     const updateData = (period) => {
+        console.log("Updating data...");
+        
         let fetch_url;
         if (dev_env){
             fetch_url = 'http://localhost:5000/api/data';
@@ -40,7 +42,12 @@ export default function LineChart(props) {
             fetch_url = '/api/data';
         };
 
-        fetch(fetch_url)
+        const fetch_url_params = fetch_url.concat('/?hours=',period);
+
+        console.log('fetch_url: ');
+        console.log(fetch_url_params);
+
+        fetch(fetch_url_params)
         .then(response => response.json())
         .then(new_data => {
             const graphDataPoints = []
@@ -90,7 +97,7 @@ export default function LineChart(props) {
                 width="100%"
             />
             <Button onClick={updateData}>Update</Button>
-            {/* <Button onClick={updateData(1)}>1 Day</Button> */}
+            <Button onClick={() => updateData('24')}>1 Day</Button>
         </div>
     )
 }

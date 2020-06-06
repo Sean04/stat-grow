@@ -7,6 +7,9 @@ const DataPoint = require('../../models/DataPoint');
 // @route GET api/data
 // @desc Get current data
 router.get('/', (req, res) => {
+    let hours = req.query.hours;
+    console.log(hours);
+
     DataPoint.find({
         //                         "2013-10-01T00:00:00.000Z"
         "Date" : {"$gte": new Date("2020-06-06T00:00:00.000Z")}
