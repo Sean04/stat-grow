@@ -46,9 +46,9 @@ export default function Dashboard(props) {
         Date: Date.now()
     });
     
-    // useEffect(() => {
-    //     updateData();
-    // });
+    useEffect(() => {
+        updateData();
+    }, []);
 
     const classes = useStyles();
 
@@ -152,6 +152,13 @@ export default function Dashboard(props) {
                     <Card>
                         <CardContent>
                             <LineChart title="Light" />
+                        </CardContent>
+                    </Card>
+                </Grid>
+                <Grid item xs={9} justify="flex-end">
+                    <Card>
+                        <CardContent>
+                            <LineChart title="Soil_Moisture" />
                         </CardContent>
                     </Card>
                 </Grid>

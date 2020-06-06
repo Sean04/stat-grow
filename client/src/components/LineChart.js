@@ -18,6 +18,9 @@ export default function LineChart(props) {
             xaxis: {
                 type: 'datetime',
                 categories: []
+            },
+            stroke: {
+                curve: 'smooth'
             }
         },
         series: [
@@ -28,9 +31,9 @@ export default function LineChart(props) {
         ]
     });
 
-    // useEffect(() => {
-    //     updateData();
-    // });
+    useEffect(() => {
+        updateData('24');
+    }, []);
 
     const updateData = (period) => {
         console.log("Updating data...");
@@ -68,6 +71,9 @@ export default function LineChart(props) {
                     case "Light":
                         graphDataPoints.push([t, item.Light]);
                         break;
+                    case "Soil_Moisture":
+                        graphDataPoints.push([t, item.Soil_Moisture])
+                        break;
                     default:
                         graphDataPoints.push([t, item.Temperature]);
                 }
@@ -96,8 +102,9 @@ export default function LineChart(props) {
                 type="line"
                 width="100%"
             />
-            <Button onClick={updateData}>Update</Button>
+            <Button onClick={() => updateData('0')}>Update</Button>
             <Button onClick={() => updateData('24')}>1 Day</Button>
+            <Button onClick={() => updateData('48')}>2 Days</Button>
         </div>
     )
 }
