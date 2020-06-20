@@ -13,6 +13,7 @@ import {
     ListItem,
     ListItemText,
     ListItemAvatar,
+    Grid,
     Divider
 } from '@material-ui/core';
 
@@ -53,19 +54,23 @@ export default function OverviewCard() {
     })
 
     return (
-        <Card className={classes.root}>
-            <Typography>Overview</Typography>
-            <div>
-                <Chart
-                    options={state.options}
-                    series={state.series}
-                    type="radialBar"
-                    width="50%" />
-            </div>
-            {/* <Divider orientation='vertical' flexItem /> */}
-            <div>
-                {/* <LineChart title="Temperature" /> */}
-            </div>
-        </Card>
+      <Card className={classes.root}>
+        <Grid container alignItems="flex-start">
+          <Grid item xs={12}>
+            {/* <Typography variant="h4"> Overview</Typography> */}
+          </Grid>
+          <Grid item xs={6}>
+            <Chart
+                options={state.options}
+                series={state.series}
+                type="radialBar"
+                width="100%" />
+          </Grid>
+          <Divider orientation='vertical' flexItem />
+          <Grid item xs={5}>
+            <Typography>Weather</Typography>
+          </Grid>
+        </Grid>
+      </Card>
     )
 }

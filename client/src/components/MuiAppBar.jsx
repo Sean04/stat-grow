@@ -1,9 +1,17 @@
 import React from 'react';
-import { AppBar, Toolbar, Typography, Button } from '@material-ui/core';
+import { 
+    AppBar, 
+    Toolbar, 
+    Typography, 
+    Button,
+    IconButton
+} from '@material-ui/core';
 import DashboardIcon from '@material-ui/icons/Dashboard';
 import { makeStyles } from '@material-ui/styles';
 import 'typeface-roboto';
 import { TiLeaf } from 'react-icons/ti';
+import GitHubIcon from '@material-ui/icons/GitHub';
+import InfoIcon from '@material-ui/icons/Info';
 
 const useStyles = makeStyles((theme) => ({
     typographyStyles: {
@@ -12,6 +20,10 @@ const useStyles = makeStyles((theme) => ({
     appBar: {
         zIndex: theme.zIndex.drawer + 1,
     },
+    
+    button: {
+        margin: theme.spacing(1)
+    }
 }));
 
 const MuiAppBar = () => {
@@ -25,11 +37,28 @@ const MuiAppBar = () => {
                     StatGrow 
                 </Typography>
                 <Button
+                    className={classes.button}
                     variant="contained"
                     color="secondary"
                     startIcon={<DashboardIcon />}
                     href="/">
                     Home
+                </Button>
+                <Button
+                    className={classes.button}
+                    variant="contained"
+                    color="secondary"
+                    startIcon={<InfoIcon />}
+                    href="/about">
+                    About
+                </Button>
+                <Button
+                    className={classes.button}
+                    variant="contained"
+                    color="secondary"
+                    startIcon={<GitHubIcon />}
+                    href="https://github.com/Sean04">
+                    GitHub
                 </Button>
             </Toolbar>
         </AppBar>

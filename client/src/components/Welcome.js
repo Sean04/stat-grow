@@ -24,8 +24,12 @@ const useStyles = makeStyles((theme) => ({
         // background: '#eceff1'
         flexGrow: 1,
         width: '100%',
-        maxWidth: 'md'
+        // maxWidth: 'md'
 
+    },
+
+    grid: {
+        wrap: 'wrap'
     },
 
     toolbar: theme.mixins.toolbar,
@@ -47,26 +51,26 @@ export default function Welcome() {
 
             <Typography variant="h2">Welcome</Typography>
             <br></br>
-            <Grid container justify="center" spacing={10}>
+            <Grid container justify="center" spacing={8} className={classes.grid}>
                 <Grid item xs={12}>
                     <OverviewCard />
                 </Grid>
-                <Grid item xs={4}>
+                <Grid item xs={12} sm={6} md={4}>
                     <PlantCard name="Ctenanthe Greystar" img={greystar} about="https://www.flowerpower.com.au/ctenanthe-grey-star-9326974060934p"/>
                 </Grid>
-                <Grid item xs={4}>
+                <Grid item xs={12} sm={6} md={4}>
                     <PlantCard name="Leatherleaf Fern" img={fern} about="https://www.flowerpower.com.au/leather-fern-9324228001214"/>
                 </Grid>
-                <Grid item xs={4}>
+                <Grid item xs={12} sm={6} md={4}>
                     <PlantCard name="Peace Lily" img={lily} about="https://www.flowerpower.com.au/spathiphyllum-romano-173774p"/>
                 </Grid>
-                <Grid item xs={4}>
+                <Grid item xs={12} sm={6} md={4}>
                     <PlantCard name="Syngonium Pixie" img={pixie} about="https://www.flowerpower.com.au/syngonium-pixie-1556290125p"/>
                 </Grid>
-                <Grid item xs={4}>
+                <Grid item xs={12} sm={6} md={4}>
                     <PlantCard name="Dieffenbachia" img={dieff} about="https://www.flowerpower.com.au/dieffenbachia-tropic-marianne-1663280180p"/>
                 </Grid>
-                <Grid item xs={4}>
+                <Grid item xs={12} sm={6} md={4}>
                     <PlantCard name="Tradescantia Tricolour" img={trad} about="https://www.flowerpower.com.au/tradescantia-tricolour-9324228000965"/>
                 </Grid>
             </Grid>

@@ -88,14 +88,7 @@ export default function Dashboard(props) {
                     <br></br>
                     <Typography variant="h2">{props.name} Dashboard</Typography>
                 </Grid>
-                <Grid item xs={9}>
-                    <Card>
-                        <CardContent>
-                            <LineChart title="Temperature" />
-                        </CardContent>
-                    </Card>
-                </Grid>
-                <Grid item xs={3}>
+                <Grid item xs={12} lg={3}>
                     <Card>
                         <CardContent>
                             <Typography variant="h4">Current Status:</Typography>
@@ -141,21 +134,28 @@ export default function Dashboard(props) {
                         </CardContent>
                     </Card>
                 </Grid>
-                <Grid item xs={9} justify="flex-end">
+                <Grid item xs={12} lg={9}>
+                    <Card>
+                        <CardContent>
+                            <LineChart title="Temperature" />
+                        </CardContent>
+                    </Card>
+                </Grid>
+                <Grid item xs={12} justify="flex-end">
                     <Card>
                         <CardContent>
                             <LineChart title="Humidity" />
                         </CardContent>
                     </Card>
                 </Grid>
-                <Grid item xs={9} justify="flex-end">
+                <Grid item xs={12} justify="flex-end">
                     <Card>
                         <CardContent>
                             <LineChart title="Light" />
                         </CardContent>
                     </Card>
                 </Grid>
-                <Grid item xs={9} justify="flex-end">
+                <Grid item xs={12} justify="flex-end">
                     <Card>
                         <CardContent>
                             <LineChart title="Soil_Moisture" />
