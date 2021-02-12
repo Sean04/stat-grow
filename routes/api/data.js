@@ -47,9 +47,8 @@ router.get('/', (req, res) => {
 
 router.post('/', (req, res) => {
     const newDataPoint = new DataPoint({
-        temperature: 20,
-        humidity: 50,
-        soil_temperature: 20,
+        Temperature: 20,
+        Humidity: 50,
         soil_moisture: 40,
         light: 60,
     });
